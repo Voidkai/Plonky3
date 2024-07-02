@@ -8,23 +8,25 @@ use p3_goldilocks::{Goldilocks, MdsMatrixGoldilocks};
 use p3_mds::coset_mds::CosetMds;
 use p3_mds::MdsPermutation;
 use p3_mersenne_31::{MdsMatrixMersenne31, Mersenne31};
+use p3_bn254_fr::{Bn254Fr, MdsMatrixBn254Fr};
 use p3_poseidon::Poseidon;
 use p3_symmetric::Permutation;
 use rand::distributions::{Distribution, Standard};
 use rand::thread_rng;
 
 fn bench_poseidon(c: &mut Criterion) {
-    poseidon::<BabyBear, MdsMatrixBabyBear, 16, 7>(c);
-    poseidon::<BabyBear, MdsMatrixBabyBear, 24, 7>(c);
-    poseidon::<BabyBear, CosetMds<_, 32>, 32, 7>(c);
-    poseidon::<<BabyBear as Field>::Packing, CosetMds<_, 32>, 32, 7>(c);
+    // poseidon::<BabyBear, MdsMatrixBabyBear, 16, 7>(c);
+    // poseidon::<BabyBear, MdsMatrixBabyBear, 24, 7>(c);
+    // poseidon::<BabyBear, CosetMds<_, 32>, 32, 7>(c);
+    // poseidon::<<BabyBear as Field>::Packing, CosetMds<_, 32>, 32, 7>(c);
 
     poseidon::<Goldilocks, MdsMatrixGoldilocks, 8, 7>(c);
-    poseidon::<Goldilocks, MdsMatrixGoldilocks, 12, 7>(c);
-    poseidon::<Goldilocks, MdsMatrixGoldilocks, 16, 7>(c);
+    // poseidon::<Goldilocks, MdsMatrixGoldilocks, 12, 7>(c);
+    // poseidon::<Goldilocks, MdsMatrixGoldilocks, 16, 7>(c);
 
-    poseidon::<Mersenne31, MdsMatrixMersenne31, 16, 5>(c);
-    poseidon::<Mersenne31, MdsMatrixMersenne31, 32, 5>(c);
+    // poseidon::<Mersenne31, MdsMatrixMersenne31, 16, 5>(c);
+    // poseidon::<Mersenne31, MdsMatrixMersenne31, 32, 5>(c);
+    poseidon::<Bn254Fr, MdsMatrixBn254Fr, 3, 5>(c);
 }
 
 fn poseidon<AF, Mds, const WIDTH: usize, const ALPHA: u64>(c: &mut Criterion)

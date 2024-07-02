@@ -14,6 +14,7 @@ rand = "0.8.5"
 p3-baby-bear = { path = "../baby-bear" }
 p3-goldilocks = { path = "../goldilocks" }
 p3-mersenne-31 = { path = "../mersenne-31" }
+p3-bn254-fr = { path = "../bn254-fr" }
 criterion = "0.5.1"
 
 [[bench]]

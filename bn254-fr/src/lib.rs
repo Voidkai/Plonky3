@@ -1,6 +1,7 @@
 //! The scalar field of the BN254 curve, defined as `F_r` where `r = 21888242871839275222246405745257275088548364400416034343698204186575808495617`.
 
 mod poseidon2;
+mod mds;
 
 use core::fmt;
 use core::fmt::{Debug, Display, Formatter};
@@ -8,6 +9,7 @@ use core::hash::{Hash, Hasher};
 use core::iter::{Product, Sum};
 use core::ops::{Add, AddAssign, Div, Mul, MulAssign, Neg, Sub, SubAssign};
 
+pub use mds::*;
 use ff::{Field as FFField, PrimeField as FFPrimeField, PrimeFieldBits};
 use num_bigint::BigUint;
 use p3_field::{AbstractField, Field, Packable, PrimeField};
