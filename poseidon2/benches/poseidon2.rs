@@ -40,7 +40,7 @@ fn bench_poseidon2(c: &mut Criterion) {
     //     c,
     // );
 
-    poseidon2::<Bn254Fr, Poseidon2ExternalMatrixGeneral, DiffusionMatrixBN254, 3, 5>(c, 8, 22);
+    poseidon2::<Bn254Fr, Poseidon2ExternalMatrixGeneral, DiffusionMatrixBN254, 3, 5>(c, 8, 56);
 }
 
 fn poseidon2<F, MdsLight, Diffusion, const WIDTH: usize, const D: u64>(

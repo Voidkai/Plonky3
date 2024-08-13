@@ -20,7 +20,7 @@ fn bench_poseidon(c: &mut Criterion) {
     // poseidon::<BabyBear, CosetMds<_, 32>, 32, 7>(c);
     // poseidon::<<BabyBear as Field>::Packing, CosetMds<_, 32>, 32, 7>(c);
 
-    poseidon::<Goldilocks, MdsMatrixGoldilocks, 8, 7>(c);
+    // poseidon::<Goldilocks, MdsMatrixGoldilocks, 8, 7>(c);
     // poseidon::<Goldilocks, MdsMatrixGoldilocks, 12, 7>(c);
     // poseidon::<Goldilocks, MdsMatrixGoldilocks, 16, 7>(c);
 
@@ -41,7 +41,7 @@ where
 
     // TODO: Should be calculated for the particular field, width and ALPHA.
     let half_num_full_rounds = 4;
-    let num_partial_rounds = 22;
+    let num_partial_rounds = 56;
 
     let poseidon = Poseidon::<AF::F, Mds, WIDTH, ALPHA>::new_from_rng(
         half_num_full_rounds,
