@@ -22,10 +22,10 @@ use serde::Serialize;
 use serde::de::DeserializeOwned;
 
 fn bench_merkle_trees(criterion: &mut Criterion) {
-    bench_bb_poseidon2(criterion);
-    bench_bb_rescue(criterion);
+    // bench_bb_poseidon2(criterion);
+    // bench_bb_rescue(criterion);
     bench_bb_blake3(criterion);
-    bench_bb_keccak(criterion);
+    // bench_bb_keccak(criterion);
 }
 
 fn bench_bb_poseidon2(criterion: &mut Criterion) {
@@ -84,7 +84,7 @@ fn bench_bb_blake3(criterion: &mut Criterion) {
     let b = Blake3 {};
     let c = C::new(b);
 
-    bench_mmcs::<F, u8, H, C, 32>(criterion, h, c.clone());
+    // bench_mmcs::<F, u8, H, C, 32>(criterion, h, c.clone());
     bench_merkle_tree::<F, u8, H, C, 32>(criterion, h, c);
 }
 
@@ -115,8 +115,8 @@ where
     [PW::Value; DIGEST_ELEMS]: Serialize + DeserializeOwned,
     StandardUniform: Distribution<P::Scalar>,
 {
-    const ROWS: usize = 1 << 15;
-    const COLS: usize = 135;
+    const ROWS: usize = 1 << 19;
+    const COLS: usize = 4;
 
     let mut rng = SmallRng::seed_from_u64(1);
     let matrix = RowMajorMatrix::<P::Scalar>::rand(&mut rng, ROWS, COLS);

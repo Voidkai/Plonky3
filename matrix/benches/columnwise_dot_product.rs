@@ -11,7 +11,7 @@ fn columnwise_dot_product(c: &mut Criterion) {
 
     type F = BabyBear;
     type EF = BinomialExtensionField<F, 4>;
-    let log_rows = 16;
+    let log_rows = 10;
 
     c.benchmark_group("babybear")
         .sample_size(10)
@@ -19,8 +19,8 @@ fn columnwise_dot_product(c: &mut Criterion) {
             b.iter_batched(
                 || {
                     (
-                        RowMajorMatrix::<F>::rand_nonzero(&mut rng, 1 << log_rows, 1 << 12),
-                        RowMajorMatrix::<EF>::rand_nonzero(&mut rng, 1 << log_rows, 1).values,
+                        RowMajorMatrix::<F>::rand_nonzero(&mut rng, 1 << log_rows, 1 << 11),
+                        RowMajorMatrix::<F>::rand_nonzero(&mut rng, 1 << log_rows, 1).values,
                     )
                 },
                 |(m, v)| m.columnwise_dot_product(&v),
