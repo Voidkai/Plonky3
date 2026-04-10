@@ -15,6 +15,9 @@ pub use poseidon2::*;
 
 pub mod poseidon1;
 
+#[cfg(test)]
+mod poseidon2_test_vectors;
+
 #[cfg(target_arch = "aarch64")]
 mod aarch64_neon;
 
